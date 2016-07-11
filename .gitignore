@@ -45,3 +45,11 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Unique
+builds/
+node_modules/
+list/
+
+config.php
+REST API.info

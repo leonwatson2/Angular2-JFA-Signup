@@ -1,0 +1,37 @@
+12
+9
+4
+12
+9
+4
+falsefalsefalse["12","9","4"]
+[12,9,4]
+false
+false
+[{"name":"Juggling"},{"name":"Kendama"},{"name":"Unicycle"}]
+[{"name":"Contact Juggling"},{"name":"Everything!"},{"name":"Flower Stick"},{"name":"Hooping"},{"name":"Juggling"},{"name":"Kendama"},{"name":"Levi wand"},{"name":"Poi"},{"name":"Unicycle"},{"name":"Yo-Yo"}]
+[{"name":"Contact Juggling"},{"name":"Everything!"},{"name":"Flower Stick"},{"name":"Hooping"},{"name":"Juggling"},{"name":"Kendama"},{"name":"Levi wand"},{"name":"Poi"},{"name":"Unicycle"},{"name":"Yo-Yo"}]
+[{"name":"Juggling"},{"name":"Kendama"},{"name":"Unicycle"}]
+[{"name":"Juggling"},{"name":"Kendama"},{"name":"Unicycle"}]
+[{"name":"Juggling"},{"name":"Kendama"},{"name":"Unicycle"}]
+[{"name":"Juggling"},{"name":"Kendama"},{"name":"Unicycle"}]
+[{"name":"Everything!"},{"name":"Juggling"},{"name":"Kendama"}]
+[{"name":"Everything!"},{"name":"Flower Stick"},{"name":"Juggling"},{"name":"Kendama"},{"name":"Levi wand"}]
+false
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Levi wand"},{"name":"Unicycle"}]
+[{"name":"Contact Juggling"},{"name":"Everything!"},{"name":"Flower Stick"},{"name":"Hooping"},{"name":"Juggling"},{"name":"Kendama"},{"name":"Levi wand"},{"name":"Poi"},{"name":"Unicycle"}]
+[{"name":"Contact Juggling"},{"name":"Everything!"},{"name":"Flower Stick"},{"name":"Hooping"},{"name":"Juggling"},{"name":"Kendama"},{"name":"Levi wand"},{"name":"Poi"},{"name":"Unicycle"}]
+[{"name":"Contact Juggling"},{"name":"Everything!"},{"name":"Flower Stick"},{"name":"Hooping"},{"name":"Juggling"},{"name":"Kendama"},{"name":"Levi wand"},{"name":"Poi"},{"name":"Unicycle"}]
+[{"name":"Contact Juggling"}]

@@ -1,0 +1,74 @@
+<div class="main">
+	<div *ngIf="isSignUpTime" class="card signup update">
+			<h1>Hey</h1>
+			<h2 *ngIf="flower.name"> What's up {{flower.name | firstword}}!</h2>
+			<p *ngIf="flower.email"> We'll email about events and meetings goin on!</p>
+			<p *ngIf="flower.birthdate">And maybe even give you so sweets on your birthday.</p>
+			<social-media></social-media>
+		</div>
+		<form *ngIf="isSignUpTime" class="card signup" (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
+		<h1>JFA Sign Up </h1>
+		
+		<label for="name">Name</label>
+		<input 
+		id="name" type="text"
+		[(ngModel)] = "flower.name"
+		htmlValue="Mikey"
+		ngControl = "name"
+		placeholder = "Michael Jackson"
+		>
+		<label for="email">Email</label>
+		<input 
+		id="email" 
+		type="email"
+		[(ngModel)] = "flower.email"
+		htmlValue="Mikey@mike.com"
+		ngControl = "email"
+		placeholder = "Michael.Jackson@my.unt.edu"
+		>
+		<label for="birthdate">Birthday</label>
+		<input 
+		id="birthdate" 
+		type="date"
+		htmlValue="1994-04-17"
+		ngControl = "birthdate"
+		[(ngModel)] = "flower.birthday"
+		>
+			<label >What are you interested in?</label>		
+			
+			<div class="checkbox-group">
+				
+				<div class="Everything">
+
+					<input 
+					id="Everything"
+					type="checkbox" 
+					name="interest" 
+					(click)="updateInterests($event, {}, signupForm);" 
+					
+					>
+					<label for="Everything"><span>Everything!</span></label>		
+				</div>
+				<div *ngFor="#interest of interests;" class="{{interest.name}}">
+
+					<input 
+					id="{{interest.name}}"
+					type="checkbox" 
+					name="interest"
+					ngControl="{{interest.name}}"
+					(click)="updateInterests($event, interest, signupForm);" 
+					>
+					<label htmlFor="{{interest.name}}"><span>{{interest.name}}</span></label>		
+				</div>
+			</div>	
+			<input type="checkbox" name="interest" id="style">
+			<button type="submit" (mousedown)="toggleClicking(true);" (mouseup)="toggleClicking(false);" [ngClass]="{click:clicking==true}">Submit</button>
+		</form>
+		<div *ngIf="!isSignUpTime" class="card signup">
+			<h2>Sorry SignUp Is Closed Follow Us!</h2>
+			<social-media></social-media>
+			
+		</div>
+		<user-numbers numberOfUsers="{{numberOfUsers}}"></user-numbers>
+</div>
+

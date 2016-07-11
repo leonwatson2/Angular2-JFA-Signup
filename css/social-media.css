@@ -1,0 +1,22 @@
+
+.socials{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.social img{
+  width: 150px;
+  margin-right: 15px;
+}
+.social {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+.social span{
+  font-size: 2.5rem;
+}
