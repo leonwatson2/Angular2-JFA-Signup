@@ -51,19 +51,17 @@ System.register(['angular2/core', 'angular2/common', './users.service', './jfa.u
                 function SignUpComponent(usersService) {
                     this.usersService = usersService;
                     this.isSignUpTime = true;
+                    //for testing only
                     this.flower = new Flower("Katellin", "kate@me.com", "1993-04-07", []);
                 }
                 ;
                 SignUpComponent.prototype.ngOnInit = function () {
-                    console.log("Hey");
                     this.clicking = false;
                     this.getUsers();
                     this.getInterests();
                 };
                 SignUpComponent.prototype.updateInterests = function (e, interest, form) {
                     var allInterests = this.interests;
-                    var input = document.getElementsByTagName("input");
-                    console.log(input);
                     if (e.target.checked) {
                         //add all interests
                         if (interest.length == 0)
@@ -89,7 +87,10 @@ System.register(['angular2/core', 'angular2/common', './users.service', './jfa.u
                         res.status == 201 ? _this.getUsers() : console.log("Error");
                     }, function (err) {
                         console.log(err);
-                    });
+                    }, function () { return _this.resetForm(); });
+                };
+                SignUpComponent.prototype.resetForm = function () {
+                    this.flower = new Flower("", "", "", []);
                 };
                 SignUpComponent.prototype.getUsers = function () {
                     var _this = this;

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'rxjs/add/operator/map', 'rxjs/add/operator/catch'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1, http_1, Rx_1;
     var UsersService;
     return {
         setters:[
@@ -20,7 +20,11 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (_1) {}],
+            function (Rx_1_1) {
+                Rx_1 = Rx_1_1;
+            },
+            function (_1) {},
+            function (_2) {}],
         execute: function() {
             UsersService = (function () {
                 function UsersService(http) {
@@ -52,7 +56,13 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
                         .map(function (res) {
                         console.log(res);
                         return res;
+                    }).catch(function (res) {
+                        // The error callback (second parameter) is called
+                        return Rx_1.Observable.throw(res.json());
+                        // The success callback (first parameter) is called
+                        // return Observable.of(res.json());
                     });
+                    ;
                 };
                 UsersService = __decorate([
                     core_1.Injectable(), 

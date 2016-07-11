@@ -27,13 +27,6 @@ System.register(['angular2/core', './users.service'], function(exports_1, contex
                 }
                 ;
                 UserNumbersComponent.prototype.ngOnInit = function () {
-                    // this.updateNumberOfSignups();
-                };
-                UserNumbersComponent.prototype.updateNumberOfSignups = function () {
-                    var _this = this;
-                    this.usersService.getUsers().subscribe(function (users) {
-                        _this.numberOfSignups = users.length;
-                    });
                 };
                 __decorate([
                     core_1.Input('numberOfUsers'), 

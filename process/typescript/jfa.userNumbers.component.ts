@@ -17,14 +17,7 @@ export class UserNumbersComponent {
   };
 
   ngOnInit(){
-    // this.updateNumberOfSignups();
-  }
-
-
-  updateNumberOfSignups(){
-    this.usersService.getUsers().subscribe((users) => {
-      this.numberOfSignups = users.length;
-    });
+   
   }
 
 }

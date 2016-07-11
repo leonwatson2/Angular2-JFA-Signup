@@ -40,19 +40,17 @@ export class SignUpComponent {
   public isSignUpTime:boolean;
   constructor(private usersService:UsersService){
     this.isSignUpTime = true;
+    //for testing only
     this.flower = new Flower("Katellin","kate@me.com","1993-04-07",[]);
   };
 
   ngOnInit(){
-    console.log("Hey"); 
     this.clicking = false;
     this.getUsers();
     this.getInterests();
   }
   updateInterests(e, interest, form){
     const allInterests = this.interests;
-      var input = document.getElementsByTagName("input");
-      console.log(input);
     
     if(e.target.checked){
         //add all interests
@@ -63,8 +61,6 @@ export class SignUpComponent {
           }
         }
        else this.flower.interests.push(interest);
-
-
     }
     else {
       if(interest.length == 0)
@@ -83,9 +79,13 @@ export class SignUpComponent {
       }, 
       err => { 
         console.log(err);
-      });
+      }, 
+      () => this.resetForm());
 
 
+  }
+  resetForm(){
+    this.flower = new Flower("","","",[]);
   }
   
   getUsers(){

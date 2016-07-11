@@ -1,5 +1,5 @@
 {
-  "name": "Sign Up Form",
+  "name": "SignUpForm",
   "version": "1.0.0",
   "author": "Leon Watson",
   "description": "Sign Up Form for juggling and flow arts",
@@ -19,6 +19,8 @@
     "rxjs": "5.0.0-beta.0",
     "systemjs": "0.19.6",
     "zone.js": "0.5.10"
+  },
+  "dependencies": {
+    "gulp-install": "^0.6.0"
   }
- 
 }

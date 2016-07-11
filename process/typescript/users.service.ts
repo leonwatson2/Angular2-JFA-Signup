@@ -1,6 +1,8 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers} from 'angular2/http';
+import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable()
@@ -37,6 +39,11 @@ export class UsersService{
 						.map(res => {
 							console.log(res);
 							return res;
-						});
+						}).catch(res => {
+				          // The error callback (second parameter) is called
+				          return Observable.throw(res.json());
+				          // The success callback (first parameter) is called
+				          // return Observable.of(res.json());
+				        });;
 	}
 }
