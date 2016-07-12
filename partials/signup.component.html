@@ -45,7 +45,7 @@
 					type="checkbox" 
 					name="interest" 
 					(click)="updateInterests($event, {}, signupForm);" 
-					
+					[checked]="flower.interests.length == interests.length"
 					>
 					<label for="Everything"><span>Everything!</span></label>		
 				</div>
@@ -56,7 +56,7 @@
 					type="checkbox" 
 					name="interest"
 					ngControl="{{interest.name}}"
-					
+					[checked]="flower.interests.indexOf(interest) >= 0"
 					(click)="updateInterests($event, interest, signupForm);" 
 					>
 					<label htmlFor="{{interest.name}}"><span>{{interest.name}}</span></label>		

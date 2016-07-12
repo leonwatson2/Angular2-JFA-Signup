@@ -18,7 +18,6 @@ export class UsersService{
 
 	getInterests(){
 		return this.http.get('./api/interests').map(res => {
-			console.log(res.json().interests);
 			return res.json().interests;
 		});
 	}
