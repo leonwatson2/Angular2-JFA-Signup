@@ -23,7 +23,6 @@ if($queryString){
 	$query = explode('=',$queryString);
 	$allParameters[0] = explode('?', $allParameters[0])[0];
 }
-
 $params = array_slice($allParameters,1);
 switch ($allParameters[0]) {
 	case 'users':
@@ -74,7 +73,9 @@ function signupsHandler($params){
 	global $method;
 	if($method == "POST"){
 		addSignup();
-	} else 
+	} else if($method == "DELETE"){
+		deleteSignUp($params);
+	}else 
 		if(empty($params[0])){
 			getSignups();
 
@@ -192,7 +193,42 @@ function addSignup(){
 		setResponse($response_array);
 
 }
+function deleteSignUp($params)
+{
+		$jfaDb = new medoo([
 
+					'database_type' => 'mysql',
+
+					'database_name' => 'jfa',
+
+					'server' => 'localhost',
+
+					'username' => DB_USERNAME,
+
+					'password' => DB_PASS,
+
+					'charset' => 'utf8'
+
+				]);
+
+
+	$jfaDb->delete(DB_SIGNUPS_LIST, ['id'=>$params[0]]);
+
+	/* Error Checking */
+
+		if ($jfaDb->error()[1] == NULL) {
+
+			$response_array = ['status' => 201, 'user' => $params[0]];
+
+		} else {
+
+			$response_array = ['status' => 404, 'reason' => $jfaDb->error()[2], 'id' => $param[0]];
+
+		}
+
+		setResponse($response_array);
+
+}
 function getInterests(){
 	$jfaDb = new medoo([
 
