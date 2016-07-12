@@ -37,7 +37,6 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'rxjs/add/operator
                 };
                 UsersService.prototype.getInterests = function () {
                     return this.http.get('./api/interests').map(function (res) {
-                        console.log(res.json().interests);
                         return res.json().interests;
                     });
                 };

@@ -40,18 +40,19 @@ export class SignUpComponent {
   public isSignUpTime:boolean;
   constructor(private usersService:UsersService){
     this.isSignUpTime = true;
-    //for testing only
-    this.flower = new Flower("Katellin","kate@me.com","1993-04-07",[]);
+    this.interests = [];
+     //for testing only
+    this.flower = new Flower("Katellin","kate" + Math.floor(Math.random()*100) + "@me.com","1993-04-07",[]);
   };
 
   ngOnInit(){
     this.clicking = false;
     this.getUsers();
     this.getInterests();
+
   }
   updateInterests(e, interest, form){
     const allInterests = this.interests;
-    
     if(e.target.checked){
         //add all interests
       if(interest.length == 0)
@@ -60,14 +61,18 @@ export class SignUpComponent {
             this.flower.interests.push(allInterests[i]);
           }
         }
-       else this.flower.interests.push(interest);
+       else  if(this.flower.interests.indexOf(interest) < 0){
+         this.flower.interests.push(interest);
+       }
     }
     else {
       if(interest.length == 0)
         this.flower.interests = [];
+      else if(this.flower.interests.indexOf(interest) < 0){
 
-      let index = this.flower.interests.indexOf(interest);
-      this.flower.interests.splice(index,1);
+        let index = this.flower.interests.indexOf(interest);
+        this.flower.interests.splice(index,1);
+      }
     }
     console.log(this.flower.interests);
   }
@@ -85,19 +90,25 @@ export class SignUpComponent {
 
   }
   resetForm(){
-    this.flower = new Flower("","","",[]);
+    //this.flower = new Flower("","","",[]);
+    console.log(Math.floor(Math.random()*this.interests.length));
+    this.flower = new Flower("Katellin","kate" + Math.floor(Math.random()*100) + "@me.com","1993-04-07",[this.interests[5]]);
+
   }
   
   getUsers(){
     this.usersService.getUsers().subscribe((users) => {
       this.users = users;
       this.numberOfUsers = users.length;
+
     });
     
   }
   getInterests(){
     this.usersService.getInterests().subscribe((interests) => {
       this.interests = interests;
+      console.log(this.interests);
+
     });
   }
 

@@ -51,8 +51,9 @@ System.register(['angular2/core', 'angular2/common', './users.service', './jfa.u
                 function SignUpComponent(usersService) {
                     this.usersService = usersService;
                     this.isSignUpTime = true;
+                    this.interests = [];
                     //for testing only
-                    this.flower = new Flower("Katellin", "kate@me.com", "1993-04-07", []);
+                    this.flower = new Flower("Katellin", "kate" + Math.floor(Math.random() * 100) + "@me.com", "1993-04-07", []);
                 }
                 ;
                 SignUpComponent.prototype.ngOnInit = function () {
@@ -70,14 +71,17 @@ System.register(['angular2/core', 'angular2/common', './users.service', './jfa.u
                                     this.flower.interests.push(allInterests[i]);
                                 }
                             }
-                        else
+                        else if (this.flower.interests.indexOf(interest) < 0) {
                             this.flower.interests.push(interest);
+                        }
                     }
                     else {
                         if (interest.length == 0)
                             this.flower.interests = [];
-                        var index = this.flower.interests.indexOf(interest);
-                        this.flower.interests.splice(index, 1);
+                        else if (this.flower.interests.indexOf(interest) < 0) {
+                            var index = this.flower.interests.indexOf(interest);
+                            this.flower.interests.splice(index, 1);
+                        }
                     }
                     console.log(this.flower.interests);
                 };
@@ -90,7 +94,9 @@ System.register(['angular2/core', 'angular2/common', './users.service', './jfa.u
                     }, function () { return _this.resetForm(); });
                 };
                 SignUpComponent.prototype.resetForm = function () {
-                    this.flower = new Flower("", "", "", []);
+                    //this.flower = new Flower("","","",[]);
+                    console.log(Math.floor(Math.random() * this.interests.length));
+                    this.flower = new Flower("Katellin", "kate" + Math.floor(Math.random() * 100) + "@me.com", "1993-04-07", [this.interests[5]]);
                 };
                 SignUpComponent.prototype.getUsers = function () {
                     var _this = this;
@@ -103,6 +109,7 @@ System.register(['angular2/core', 'angular2/common', './users.service', './jfa.u
                     var _this = this;
                     this.usersService.getInterests().subscribe(function (interests) {
                         _this.interests = interests;
+                        console.log(_this.interests);
                     });
                 };
                 SignUpComponent.prototype.toggleClicking = function (state) {

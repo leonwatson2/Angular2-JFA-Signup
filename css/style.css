@@ -171,7 +171,7 @@ a.small {
   width: 100%;
 }
 
-.signup input ,.signup button{
+.signup input ,.signup button, .confirm button{
   width: 100%;
   display: block;
   font-weight: 100;
@@ -214,6 +214,8 @@ a.small {
   
 }
 .checkbox-group div{
+  width: 33%;
+  display: 
 }
 .checkbox-group .Everything{
   width: 100%;
@@ -230,22 +232,27 @@ input[type="checkbox"]{
 }
 
 input[type="checkbox"]+label{
+  background:white;
+  color:black;
   display: flex;
   align-items: center;
   justify-content: center;
-  width:100px;
+  width: 98%;
   height: 50px;
-  margin:2px;
+  margin:2px 4px;
   padding:2px 5px;
-  border:solid 1px gray;
+  border:solid 1px #c5c5c5;
+  transition:all .35s;
 }
-input[type="checkbox"]+label{
-  background:white;
-  color:black;
-  transition:all .75s;
+input[type="checkbox"]+label:hover{
+  background:#e4e4e4;
 }
 input[type="checkbox"]:checked+label{
+  transition:all .75s;
   background:black;
   color:white;
   
+}
+.confirm button{
+  background:#3e0000;
 }
